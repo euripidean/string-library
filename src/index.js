@@ -1,4 +1,5 @@
 function capitalize(str) {
+  str = str.toLowerCase();
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
@@ -82,13 +83,15 @@ function snakeCase(str) {
 // console.log(snakeCase("  ??what the    heck   "));
 
 function camelCase(str) {
+  //remove anything that is not a word character or a space
+  str = str.replace(/[^\w\s]|_/g, "").trim();
   return str
     .split(" ")
     .map((word, index) => {
-      if (index > 0) {
-        return capitalize(word);
-      } else {
+      if (index == 0) {
         return word.toLowerCase();
+      } else {
+        return capitalize(word);
       }
     })
     .join("");
@@ -96,7 +99,7 @@ function camelCase(str) {
 
 // console.log(camelCase("camel case"));
 
-function shift(str, num) {
+function shift(str, num = 1) {
   const textToShift = str.substring(0, num);
   return str.slice(num) + textToShift;
 }
@@ -116,3 +119,18 @@ function makeHashTag(str) {
 function isEmpty(str) {
   return str.trim().length === 0;
 }
+
+// export all functions
+module.exports = {
+  capitalize,
+  allCaps,
+  capitalizeWords,
+  capitalizeHeadline,
+  removeExtraSpaces,
+  kebobCase,
+  snakeCase,
+  camelCase,
+  shift,
+  makeHashTag,
+  isEmpty,
+};
