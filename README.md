@@ -13,7 +13,7 @@ This simple package provides a number of functions that can help you to manipula
 - **capitalize(str)**
 - **allCaps(str)**
 - **capitalizeWords(str)**
-- **capitalizeHeadline(str)** (does not capitalize the following words: 
+- **capitalizeHeadline(str)** (does not capitalize the following words: _the, in, a, an, and, but, for, of, at, by, from_
 - **removeExtraSpaces(str)**
 - **kebobCase(str)**
 - **snakeCase(str)**
