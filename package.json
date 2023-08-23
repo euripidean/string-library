@@ -1,5 +1,5 @@
 {
-  "name": "string-library",
+  "name": "@euripidean/string-library",
   "version": "1.0.0",
   "description": "[School Assignment] JS Library for manipulating strings",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "euripidean",
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.6.3"
