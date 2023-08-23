@@ -9,6 +9,7 @@ const {
   camelCase,
   shift,
   makeHashTag,
+  isEmpty,
 } = require("../src/index");
 
 describe("capitalize", () => {
@@ -180,8 +181,38 @@ describe("makeHashTag", () => {
   it("only returns the three longest words of an array", () => {
     expect(makeHashTag("hello world, how is it going today")).toEqual([
       "#Hello",
-      "#Going",
       "#World",
+      "#Going",
     ]);
+  });
+
+  it("returns a hashtag when only one word is supplied", () => {
+    expect(makeHashTag("hello")).toEqual(["#Hello"]);
+  });
+});
+
+describe("isEmpty", () => {
+  it("returns true if a string is empty", () => {
+    expect(isEmpty("")).toBe(true);
+  });
+
+  it("returns false if a string is not empty", () => {
+    expect(isEmpty("hello")).toBe(false);
+  });
+
+  it("returns true if the string only contains a space", () => {
+    expect(isEmpty(" ")).toBe(true);
+  });
+
+  it("returns true if the string only contains tab", () => {
+    expect(isEmpty("\t")).toBe(true);
+  });
+
+  it("returns true if the string only contains newline", () => {
+    expect(isEmpty("\n")).toBe(true);
+  });
+
+  it("returns true if the string only contains carriage return", () => {
+    expect(isEmpty("\r")).toBe(true);
   });
 });

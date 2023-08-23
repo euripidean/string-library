@@ -3,13 +3,9 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// console.log(capitalize("hello world"));
-
 function allCaps(str) {
   return str.toUpperCase();
 }
-
-// console.log(allCaps("foo bar"));
 
 function capitalizeWords(str) {
   return str
@@ -17,8 +13,6 @@ function capitalizeWords(str) {
     .map((word) => capitalize(word))
     .join(" ");
 }
-
-// console.log(capitalizeWords("do all the things"));
 
 function capitalizeHeadline(str) {
   const removedWords = [
@@ -69,8 +63,6 @@ function kebobCase(str) {
     .join("-");
 }
 
-// console.log(kebobCase("!!Is this thing working?"));
-
 function snakeCase(str) {
   return str
     .replace(/[^\w\s]/gi, "")
@@ -80,10 +72,7 @@ function snakeCase(str) {
     .join("_");
 }
 
-// console.log(snakeCase("  ??what the    heck   "));
-
 function camelCase(str) {
-  //remove anything that is not a word character or a space
   str = str.replace(/[^\w\s]|_/g, "").trim();
   return str
     .split(" ")
@@ -97,24 +86,19 @@ function camelCase(str) {
     .join("");
 }
 
-// console.log(camelCase("camel case"));
-
 function shift(str, num = 1) {
   const textToShift = str.substring(0, num);
   return str.slice(num) + textToShift;
 }
 
-// console.log(shift("string", 2));
-
 function makeHashTag(str) {
+  str = str.replace(/[^\w\s]/gi, "");
   const words = str.split(" ");
   if (words.length > 3) {
     words.sort((a, b) => b.length - a.length);
   }
   return words.map((word) => `#${capitalize(word)}`).slice(0, 3);
 }
-
-// console.log(makeHashTag("One"));
 
 function isEmpty(str) {
   return str.trim().length === 0;
